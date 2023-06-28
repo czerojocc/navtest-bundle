@@ -1,0 +1,47 @@
+Flexibill\NavBundle\Model\ManageInvoiceResponse:
+    xml_root_name: ManageInvoiceResponse
+    xml_root_namespace: http://schemas.nav.gov.hu/OSA/3.0/api
+    xml_namespaces:
+        "common": "http://schemas.nav.gov.hu/NTCA/1.0/common"
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         header:
+            name: header
+            serialized_name: header
+            type: Flexibill\NavBundle\Model\Header
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         result:
+            name: result
+            serialized_name: result
+            type: Flexibill\NavBundle\Model\BasicResult
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         software:
+            name: software
+            serialized_name: software
+            type: Flexibill\NavBundle\Model\Software
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         transactionId:
+            name: transactionId
+            serialized_name: transactionId
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

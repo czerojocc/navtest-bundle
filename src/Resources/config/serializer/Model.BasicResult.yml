@@ -1,0 +1,33 @@
+Flexibill\NavBundle\Model\BasicResult:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         funcCode:
+            name: funcCode
+            serialized_name: funcCode
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         errorCode:
+            name: errorCode
+            serialized_name: errorCode
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         message:
+            name: message
+            serialized_name: message
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

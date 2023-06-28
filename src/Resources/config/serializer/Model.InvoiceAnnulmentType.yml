@@ -1,0 +1,43 @@
+Flexibill\NavBundle\Model\InvoiceAnnulmentType:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         annulmentReference:
+            name: annulmentReference
+            serialized_name: annulmentReference
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         annulmentTimestamp:
+            name: annulmentTimestamp
+            serialized_name: annulmentTimestamp
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         annulmentCode:
+            name: annulmentCode
+            serialized_name: annulmentCode
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         annulmentReason:
+            name: annulmentReason
+            serialized_name: annulmentReason
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

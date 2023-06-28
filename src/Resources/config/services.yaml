@@ -1,0 +1,30 @@
+services:
+  App\NavBundle\Service\ConnectionHandler:
+    arguments:
+      - '@jms_serializer'
+      - '@App\NavBundle\Service\Connector'
+      - '@monolog.logger'
+      - '@App\NavBundle\Service\ManageRequestXMLMaker'
+      - '@Symfony\Component\Validator\Validator\ValidatorInterface'
+      - '%nav_module_software_params%'
+
+  App\NavBundle\Service\Connector:
+    arguments:
+      - '@monolog.logger'
+      - '%env(NAV_API_URL)%'
+      - '%nav_module_enable%'
+
+  App\NavBundle\Transformer\NavXMLTransformer:
+    public: true
+
+  App\NavBundle\Transformer\InvoiceDataToPeppolTransformer:
+    public: true
+    arguments:
+      - '@App\NavBundle\Transformer\InvoiceToUBL21PeppolTransformer'
+      - '@jms_serializer'
+
+  App\NavBundle\Service\ManageRequestXMLMaker:
+    public: true
+    arguments:
+      - '@App\NavBundle\Service\OperationManager'
+      - '@jms_serializer'

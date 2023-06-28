@@ -1,0 +1,33 @@
+Flexibill\NavBundle\Model\TransactionParams:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         transactionId:
+            name: transactionId
+            serialized_name: transactionId
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         index:
+            name: index
+            serialized_name: index
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         operation:
+            name: operation
+            serialized_name: operation
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

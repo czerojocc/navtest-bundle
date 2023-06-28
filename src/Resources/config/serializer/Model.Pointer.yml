@@ -1,0 +1,33 @@
+Flexibill\NavBundle\Model\Pointer:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         tag:
+            name: tag
+            serialized_name: tag
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         value:
+            name: value
+            serialized_name: value
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         line:
+            name: line
+            serialized_name: line
+            expose: true
+            skip_when_empty: true
+            type: integer
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

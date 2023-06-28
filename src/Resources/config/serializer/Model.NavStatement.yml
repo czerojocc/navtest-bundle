@@ -1,0 +1,29 @@
+Flexibill\NavBundle\Model\NavStatement:
+    exclusion_policy: ALL
+    properties:
+        name:
+            expose: true
+            serialized_name: name
+            xml_element:
+                cdata: false
+            groups: [long, short]
+
+        taxNumber:
+            expose: true
+            serialized_name: taxNumber
+            xml_element:
+                cdata: false
+            groups: [long, short]
+
+        addressLine:
+            expose: true
+            serialized_name: addressLine
+            xml_element:
+                cdata: false
+            groups: [long, short]
+
+        date:
+            expose: true
+            xml_element:
+                cdata: false
+            groups: [long, short]

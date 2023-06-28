@@ -1,0 +1,34 @@
+Flexibill\NavBundle\Model\TokenExchangeRequest:
+    xml_root_name: TokenExchangeRequest
+    xml_root_namespace: http://schemas.nav.gov.hu/OSA/3.0/api
+    xml_namespaces:
+        "common": "http://schemas.nav.gov.hu/NTCA/1.0/common"
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         header:
+            name: header
+            serialized_name: common:header
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         user:
+            name: user
+            serialized_name: common:user
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         software:
+            name: software
+            serialized_name: software
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

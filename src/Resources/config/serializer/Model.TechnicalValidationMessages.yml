@@ -1,0 +1,33 @@
+Flexibill\NavBundle\Model\TechnicalValidationMessages:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         validationResultCode:
+            name: validationResultCode
+            serialized_name: validationResultCode
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         validationErrorCode:
+            name: validationErrorCode
+            serialized_name: validationErrorCode
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         message:
+            name: message
+            serialized_name: message
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

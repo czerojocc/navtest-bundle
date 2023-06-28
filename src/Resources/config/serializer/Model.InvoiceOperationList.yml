@@ -1,0 +1,25 @@
+Flexibill\NavBundle\Model\InvoiceOperationList:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         compressedContent:
+            name: compressedContent
+            serialized_name: compressedContent
+            type: boolean
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         invoiceOperations:
+            name: invoiceOperations
+            serialized_name: invoiceOperations
+            xml_list:
+                inline: true
+                entry_name: invoiceOperation
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

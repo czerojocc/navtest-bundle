@@ -1,0 +1,27 @@
+Flexibill\NavBundle\Entity\NavUserData:
+    exclusion_policy: ALL
+    properties:
+        userName:
+            expose: true
+            serialized_name: userName
+            xml_element:
+                cdata: false
+            groups: [long, short]
+
+        password:
+            expose: true
+            xml_element:
+                cdata: false
+            groups: [long, short]
+
+        xmlSignKey:
+            expose: true
+            xml_element:
+                cdata: false
+            groups: [long, short]
+
+        xmlExchangeKey:
+            expose: true
+            xml_element:
+                cdata: false
+            groups: [long, short]

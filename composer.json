@@ -1,0 +1,28 @@
+{
+  "name": "czerojocc/navtest-bundle",
+  "type": "library",
+  "description": "NAV Bundle for Flexibill apps",
+  "keywords": [
+    "php",
+    "flexibill",
+    "symfony",
+    "nav"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Flexibill",
+      "email": "admin@flexibill.hu"
+    }
+  ],
+  "require": {
+    "php": "^7.1 || ^8.0",
+    "symfony/monolog-bundle": "^3.5",
+    "jms/serializer-bundle": "^4.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Flexibill\\NavBundle\\": "src"
+    }
+  }
+}

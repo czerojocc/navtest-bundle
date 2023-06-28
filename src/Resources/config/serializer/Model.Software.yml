@@ -1,0 +1,83 @@
+Flexibill\NavBundle\Model\Software:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         softwareId:
+            name: softwareId
+            serialized_name: softwareId
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareName:
+            name: softwareName
+            serialized_name: softwareName
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareOperation:
+            name: softwareOperation
+            serialized_name: softwareOperation
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareMainVersion:
+            name: softwareMainVersion
+            serialized_name: softwareMainVersion
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareDevName:
+            name: softwareDevName
+            serialized_name: softwareDevName
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareDevContact:
+            name: softwareDevContact
+            serialized_name: softwareDevContact
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareDevCountryCode:
+            name: softwareDevCountryCode
+            serialized_name: softwareDevCountryCode
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         softwareDevTaxNumber:
+            name: softwareDevTaxNumber
+            serialized_name: softwareDevTaxNumber
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]

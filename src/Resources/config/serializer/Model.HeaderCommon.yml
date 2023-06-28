@@ -1,0 +1,43 @@
+Flexibill\NavBundle\Model\HeaderCommon:
+    cdata: false
+    exclusion_policy: ALL
+    properties:
+         requestId:
+            name: requestId
+            serialized_name: common:requestId
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         timestamp:
+            name: timestamp
+            serialized_name: common:timestamp
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         requestVersion:
+            name: requestVersion
+            serialized_name: common:requestVersion
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
+
+         headerVersion:
+            name: headerVersion
+            serialized_name: common:headerVersion
+            type: string
+            expose: true
+            skip_when_empty: true
+            xml_element:
+                cdata: false
+            groups: [short, long, specific]
