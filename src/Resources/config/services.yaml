@@ -1,30 +1,80 @@
 services:
-  App\NavBundle\Service\ConnectionHandler:
+  Flexibill\NavBundle\Service\ConnectionHandler:
     arguments:
       - '@jms_serializer'
-      - '@App\NavBundle\Service\Connector'
+      - '@Flexibill\NavBundle\Service\Connector'
       - '@monolog.logger'
-      - '@App\NavBundle\Service\ManageRequestXMLMaker'
+      - '@Flexibill\NavBundle\Service\ManageRequestXMLMaker'
       - '@Symfony\Component\Validator\Validator\ValidatorInterface'
       - '%nav_module_software_params%'
 
-  App\NavBundle\Service\Connector:
+  Flexibill\NavBundle\Service\Connector:
     arguments:
       - '@monolog.logger'
       - '%env(NAV_API_URL)%'
       - '%nav_module_enable%'
 
-  App\NavBundle\Transformer\NavXMLTransformer:
-    public: true
-
-  App\NavBundle\Transformer\InvoiceDataToPeppolTransformer:
-    public: true
+  # todo remove dependency from app bundle
+  Flexibill\NavBundle\Transformer\NavXMLTransformer:
     arguments:
-      - '@App\NavBundle\Transformer\InvoiceToUBL21PeppolTransformer'
+      - '@kernel'
+      - '@monolog.logger'
+      - '@App\AppBundle\Service\FileManager'
+
+  Flexibill\NavBundle\Transformer\NavDataXMLTransformer:
+    arguments:
+      - '@kernel'
+      - '@monolog.logger'
+      - '@App\AppBundle\Service\FileManager'
+
+  Flexibill\NavBundle\Transformer\InvoiceToUBL21PeppolTransformer:
+    arguments:
+      - '@kernel'
+      - '@monolog.logger'
+      - '@App\AppBundle\Service\FileManager'
+
+  Flexibill\NavBundle\Service\TokenExchangeManager:
+
+  Flexibill\NavBundle\Service\NavInvoiceParser\NavInvoiceParserFactory:
+    arguments:
+      - '@Flexibill\NavBundle\Service\NavInvoiceParser\NavLegacyInvoiceParser'
+      - '@Flexibill\NavBundle\Service\NavInvoiceParser\NavInvoiceParser'
+      - '@Flexibill\NavBundle\Service\NavInvoiceParser\NavSimplifiedInvoiceParser'
+
+  Flexibill\NavBundle\Service\NavInvoiceRequestFactory:
+    arguments:
+      - '@Flexibill\NavBundle\Service\ConnectionHandler'
+      - '@monolog.logger'
+      - '@doctrine.orm.entity_manager'
+      - '@App\InvoiceBundle\Repository\NavFetchJobRepository'
+
+  Flexibill\NavBundle\Transformer\NavAnnulmentXMLTransformer:
+    arguments:
       - '@jms_serializer'
 
-  App\NavBundle\Service\ManageRequestXMLMaker:
+  Flexibill\NavBundle\Transformer\InvoiceDataToPeppolTransformer:
     public: true
     arguments:
-      - '@App\NavBundle\Service\OperationManager'
+      - '@Flexibill\NavBundle\Transformer\InvoiceToUBL21PeppolTransformer'
+      - '@jms_serializer'
+
+  Flexibill\NavBundle\Service\NavInvoiceParser\NavLegacyInvoiceParser:
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@monolog.logger'
+
+  Flexibill\NavBundle\Service\NavInvoiceParser\NavInvoiceParser:
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@monolog.logger'
+
+  Flexibill\NavBundle\Service\NavInvoiceParser\NavSimplifiedInvoiceParser:
+    arguments:
+      - '@doctrine.orm.entity_manager'
+      - '@monolog.logger'
+
+
+  Flexibill\NavBundle\Service\ManageRequestXMLMaker:
+    public: true
+    arguments:
       - '@jms_serializer'

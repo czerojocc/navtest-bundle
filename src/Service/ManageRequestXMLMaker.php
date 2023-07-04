@@ -43,12 +43,9 @@ class ManageRequestXMLMaker
      * @param OperationManager $operationManager
      * @param SerializerInterface $serializer
      */
-    public function __construct(
-        OperationManager $operationManager,
-        SerializerInterface $serializer
-    )
+    public function __construct(SerializerInterface $serializer)
     {
-        $this->operationManager = $operationManager;
+        $this->operationManager = new OperationManager();
         $this->serializer = $serializer;
     }
 
