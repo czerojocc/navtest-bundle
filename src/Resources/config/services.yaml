@@ -26,6 +26,7 @@ services:
       - '@kernel'
       - '@monolog.logger'
       - '@App\AppBundle\Service\FileManager'
+      - '@jms_serializer'
 
   Flexibill\NavBundle\Transformer\InvoiceToUBL21PeppolTransformer:
     arguments:
@@ -34,6 +35,11 @@ services:
       - '@App\AppBundle\Service\FileManager'
 
   Flexibill\NavBundle\Service\TokenExchangeManager:
+    arguments:
+      - '@monolog.logger'
+      - '@jms_serializer'
+      - '@Flexibill\NavBundle\Service\Connector'
+      - '@Symfony\Component\Validator\Validator\ValidatorInterface'
 
   Flexibill\NavBundle\Service\NavInvoiceParser\NavInvoiceParserFactory:
     arguments:
@@ -50,6 +56,9 @@ services:
 
   Flexibill\NavBundle\Transformer\NavAnnulmentXMLTransformer:
     arguments:
+      - '@kernel'
+      - '@monolog.logger'
+      - '@App\AppBundle\Service\FileManager'
       - '@jms_serializer'
 
   Flexibill\NavBundle\Transformer\InvoiceDataToPeppolTransformer:
@@ -73,8 +82,11 @@ services:
       - '@doctrine.orm.entity_manager'
       - '@monolog.logger'
 
-
   Flexibill\NavBundle\Service\ManageRequestXMLMaker:
     public: true
     arguments:
       - '@jms_serializer'
+
+  Flexibill\NavBundle\Service\NavDataHandler:
+    arguments:
+      - '@translator'

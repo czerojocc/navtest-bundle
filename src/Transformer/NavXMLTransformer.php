@@ -7,6 +7,7 @@ namespace Flexibill\NavBundle\Transformer;
 use App\AppBundle\Exception\InvalidXMLException;
 use App\AppBundle\Exception\TransformationException;
 use App\AppBundle\Service\CountryChecker;
+use App\AppBundle\Service\FileManager;
 use App\AppBundle\Service\XSLTTransformer;
 use App\CompanyBundle\Enum\CompanyLegalEnum;
 use App\InvoiceBundle\Entity\Address;
@@ -17,6 +18,8 @@ use Flexibill\NavBundle\Validator\PostalCodeValidator;
 use DateTime;
 use DateTimeZone;
 use JMS\Serializer\SerializerInterface;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 abstract class NavXMLTransformer extends XSLTTransformer implements NavTransformerInterface
 {
@@ -26,6 +29,18 @@ abstract class NavXMLTransformer extends XSLTTransformer implements NavTransform
     protected $configPath = '@NavBundle/Resources/config';
 
     protected $serializer;
+
+    public function __construct(
+        KernelInterface     $kernel,
+        LoggerInterface     $logger,
+        FileManager         $fileManager,
+        SerializerInterface $serializer
+    )
+    {
+        parent::__construct($kernel, $logger, $fileManager);
+
+        $this->serializer = $serializer;
+    }
 
     /**
      * @param SerializerInterface $serializer
@@ -168,7 +183,7 @@ abstract class NavXMLTransformer extends XSLTTransformer implements NavTransform
         $customerPartyLegalEntity = $invoice->getAccountingCustomerParty()->getPartyLegalEntity();
 
         $isDomestic = false;
-        if($customerPartyLegalEntity->getRegistrationAddress()) {
+        if ($customerPartyLegalEntity->getRegistrationAddress()) {
             $isDomestic = $customerPartyLegalEntity->getRegistrationAddress()
                     ->getSpecificCountry()
                     ->getIdentificationCode() === 'HU';
